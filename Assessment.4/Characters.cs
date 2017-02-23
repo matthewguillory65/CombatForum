@@ -28,7 +28,8 @@ namespace Assessment._4
         private int m_Defense;
         private bool m_Alive;
         private FSM<PlayerStates> HeroFSM;
-
+        private int v1;
+        private string v2;
 
         public int Attack
         {
@@ -53,6 +54,7 @@ namespace Assessment._4
             m_Alive = true;
             HeroFSM = new FSM<PlayerStates>();
             DefineStateTransitions();
+
         }
 
         public Heros(int attack, int defense)
@@ -63,6 +65,12 @@ namespace Assessment._4
             HeroFSM = new FSM<PlayerStates>();
             DefineStateTransitions();
         }
+
+        //public Heros(int v1, string v2)
+        //{
+        //    this.v1 = v1;
+        //    this.v2 = v2;
+        //}
 
         private void DefineStateTransitions()
         {

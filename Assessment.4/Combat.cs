@@ -6,9 +6,11 @@ using System.Threading.Tasks;
 
 namespace Assessment._4
 {
-    class Combat
+    public class Combat
     {
-        void Attack(Heros H1, Heros H2, Enemy Dragon)
+        public Combat() { }
+
+        public void Attack(Heros H1, Heros H2, Enemy Dragon)
         {
             int newAttack;
 
@@ -16,7 +18,7 @@ namespace Assessment._4
 
             if (newAttack > Dragon.Attack)
             {
-
+                Dragon.Alive = false;
             }
 
             else
@@ -26,7 +28,7 @@ namespace Assessment._4
             }
         }
 
-        void Defend(Heros H1, Heros H2, Enemy Dragon)
+        public void Defend(Heros H1, Heros H2, Enemy Dragon)
         {
             int newDefense;
             int newAttack;

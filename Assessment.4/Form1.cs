@@ -17,6 +17,13 @@ namespace Assessment._4
         {
             InitializeComponent();
 
+            comboBox1.Items.Add(new Heros());
+            comboBox1.Items.Add(new Heros());
+            comboBox1.Items.Add(new Heros());
+
+            comboBox2.Items.Add(new Heros());
+            comboBox2.Items.Add(new Heros());
+            comboBox2.Items.Add(new Heros());
         }
 
         public void CaseStatements()
@@ -41,22 +48,12 @@ namespace Assessment._4
 
         private void button1_Click(object sender, EventArgs e)
         {
-            //Attacking();
+            //Singleton.Instance.Combat.Attack(comboBox1_SelectedIndexChanged, comboBox2_SelectedIndexChanged_1, textBox1_TextChanged);
         }
 
         private void button2_Click(object sender, EventArgs e)
         {
-            //Defending();
-        }
-
-        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void comboBox2_SelectedIndexChanged_1(object sender, EventArgs e)
-        {
-
+            
         }
 
         private void textBox1_TextChanged(object sender, EventArgs e)
@@ -72,6 +69,26 @@ namespace Assessment._4
         private void textBox3_TextChanged(object sender, EventArgs e)
         {
             //textBox3.Text = ActiveDrogoon.Defense.ToString();
+        }
+
+        private void listBox2_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void listBox1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void comboBox2_SelectedIndexChanged_1(object sender, EventArgs e)
+        {
+
         }
     }
 }

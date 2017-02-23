@@ -42,7 +42,7 @@ namespace Assessment._4
             Drogoons.Add(ArmoredDragon);
             Drogoons.Add(SkeleDragon);
             Drogoons.Add(WaterDragon);
-
+            Singleton.Instance.Heroz = Defender;
             Singleton.Instance.currentDrogoon = Drogoons.First();
             Singleton.Instance.currentHero = Hoomans.First();
 

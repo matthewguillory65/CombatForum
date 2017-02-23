@@ -29,7 +29,6 @@ namespace Assessment._4
                 States.Add((T)value);
             }
         }
-
         public void AddTransition(T start, T end, bool CanTraverseBack)
         {
             string transition = CreateTransition(start, end);
