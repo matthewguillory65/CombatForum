@@ -16,7 +16,7 @@ namespace Assessment._4
         public Form1()
         {
             InitializeComponent();
-
+            
             comboBox1.Items.Add(new Heros());
             comboBox1.Items.Add(new Heros());
             comboBox1.Items.Add(new Heros());
@@ -24,7 +24,7 @@ namespace Assessment._4
             comboBox2.Items.Add(new Heros());
             comboBox2.Items.Add(new Heros());
             comboBox2.Items.Add(new Heros());
-        }
+    }
 
         public void CaseStatements()
         {
@@ -48,12 +48,12 @@ namespace Assessment._4
 
         private void button1_Click(object sender, EventArgs e)
         {
-            //Singleton.Instance.Combat.Attack(comboBox1_SelectedIndexChanged, comboBox2_SelectedIndexChanged_1, textBox1_TextChanged);
+            Singleton.Instance.Combat.Attack(comboBox1_SelectedIndexChanged, comboBox2_SelectedIndexChanged_1, Singleton.Instance.currentDrogoon);
         }
 
         private void button2_Click(object sender, EventArgs e)
         {
-            
+            Singleton.Instance.Combat.Defend(comboBox1_SelectedIndexChanged, comboBox2_SelectedIndexChanged_1, Singleton.Instance.currentDrogoon);
         }
 
         private void textBox1_TextChanged(object sender, EventArgs e)
@@ -69,16 +69,6 @@ namespace Assessment._4
         private void textBox3_TextChanged(object sender, EventArgs e)
         {
             //textBox3.Text = ActiveDrogoon.Defense.ToString();
-        }
-
-        private void listBox2_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void listBox1_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
         }
 
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
