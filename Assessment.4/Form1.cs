@@ -17,6 +17,7 @@ namespace Assessment._4
         {
             InitializeComponent();
 
+            int q = 0;
             //comboBox1.Items.Add(new Heros(10, 200, "Defender"));
             //comboBox1.Items.Add(new Heros(160, 140, "Archer"));
             //comboBox1.Items.Add(new Heros(180, 120, "Warrior"));
@@ -26,7 +27,13 @@ namespace Assessment._4
                 comboBox1.Items.Add(x.Name);
                 comboBox2.Items.Add(x.Name);
             });
+            textBox2.Text = Singleton.Instance.currentDrogoon.Attack.ToString();
+            textBox3.Text = Singleton.Instance.currentDrogoon.Alive.ToString();
+            textBox1.Text = Singleton.Instance.currentDrogoon.Name;
             
+            //Singleton.Instance.Combat.Attack(comboBox1, comboBox2, Singleton.Instance.currentDrogoon);
+            //Singleton.Instance.Combat.Defend(comboBox1, comboBox2, Singleton.Instance.currentDrogoon);
+
             //comboBox2.Items.Add(new Heros(10, 200, "Defender"));
             //comboBox2.Items.Add(new Heros(160, 140, "Archer"));
             //comboBox2.Items.Add(new Heros(180, 120, "Warrior"));
@@ -34,27 +41,27 @@ namespace Assessment._4
 
         private void button1_Click(object sender, EventArgs e)
         {
-            //Singleton.Instance.Combat.Attack(comboBox1_SelectedIndexChanged, comboBox2_SelectedIndexChanged_1, Singleton.Instance.currentDrogoon);
+            
         }
 
         private void button2_Click(object sender, EventArgs e)
         {
-            //Singleton.Instance.Combat.Defend(comboBox1_SelectedIndexChanged, comboBox2_SelectedIndexChanged_1, Singleton.Instance.currentDrogoon);
+            
         }
 
         private void textBox1_TextChanged(object sender, EventArgs e)
         {
-            textBox1.Text = Singleton.Instance.currentDrogoon.Name;
+            
         }
 
         private void textBox2_TextChanged(object sender, EventArgs e)
         {
-            textBox2.Text = Singleton.Instance.currentDrogoon.Attack.ToString();
+            
         }
 
         private void textBox3_TextChanged(object sender, EventArgs e)
         {
-            textBox3.Text = Singleton.Instance.currentDrogoon.Alive.ToString();
+            
         }
 
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
@@ -70,6 +77,11 @@ namespace Assessment._4
             //comboBox1.Items.Add("Defender");
             //comboBox1.Items.Add("Archer");
             //comboBox1.Items.Add("Warrior");
+        }
+
+        private void textBox5_TextChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

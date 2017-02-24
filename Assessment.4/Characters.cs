@@ -126,5 +126,13 @@ namespace Assessment._4
             m_Attack = attack;
             m_Alive = true;
         }
+
+        public void IsDead()
+        {
+            if(Singleton.Instance.currentDrogoon.Alive != true)
+            {
+
+            }
+        }
     }
 }
