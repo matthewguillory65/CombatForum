@@ -27,6 +27,6 @@ namespace Assessment._4
         public Enemy currentDrogoon;
         //public FSM GM;
         public Combat Combat;
-        public Heros Heroz;
+        public List<Heros> Heroz;
     }
 }

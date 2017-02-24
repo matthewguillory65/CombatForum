@@ -24,6 +24,7 @@ namespace Assessment._4
             INIT, IDLE, ATTACK, DEFEND, DEAD, EXIT
         }
 
+        private string m_Name;
         private int m_Attack;
         private int m_Defense;
         private bool m_Alive;
@@ -31,6 +32,11 @@ namespace Assessment._4
         private int v1;
         private string v2;
 
+        public string Name
+        {
+            get { return m_Name; }
+            set { m_Name = value; }
+        }
         public int Attack
         {
             get { return m_Attack; }
@@ -51,14 +57,16 @@ namespace Assessment._4
         {
             m_Attack = 10;
             m_Defense = 5;
+            m_Name = Name;
             m_Alive = true;
             HeroFSM = new FSM<PlayerStates>();
             DefineStateTransitions();
 
         }
 
-        public Heros(int attack, int defense)
+        public Heros(int attack, int defense, string name)
         {
+            m_Name = name;
             m_Attack = attack;
             m_Defense = defense;
             m_Alive = true;
@@ -87,7 +95,13 @@ namespace Assessment._4
     {
         int m_Attack;
         bool m_Alive;
-
+        private string m_Name;
+        
+        public string Name
+        {
+            get { return m_Name; }
+            set { m_Name = value; }
+        }
         public int Attack
         {
             get { return m_Attack; }
@@ -101,12 +115,14 @@ namespace Assessment._4
 
         public Enemy()
         {
+            m_Name = Name;
             m_Attack = 10;
             m_Alive = true;
         }
 
-        public Enemy(int attack)
+        public Enemy(int attack, string name)
         {
+            m_Name = name;
             m_Attack = attack;
             m_Alive = true;
         }
