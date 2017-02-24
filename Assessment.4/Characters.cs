@@ -29,8 +29,6 @@ namespace Assessment._4
         private int m_Defense;
         private bool m_Alive;
         private FSM<PlayerStates> HeroFSM;
-        private int v1;
-        private string v2;
 
         public string Name
         {
@@ -73,12 +71,6 @@ namespace Assessment._4
             HeroFSM = new FSM<PlayerStates>();
             DefineStateTransitions();
         }
-
-        //public Heros(int v1, string v2)
-        //{
-        //    this.v1 = v1;
-        //    this.v2 = v2;
-        //}
 
         private void DefineStateTransitions()
         {
@@ -125,14 +117,6 @@ namespace Assessment._4
             m_Name = name;
             m_Attack = attack;
             m_Alive = true;
-        }
-
-        public void IsDead()
-        {
-            if(Singleton.Instance.currentDrogoon.Alive != true)
-            {
-
-            }
         }
     }
 }
