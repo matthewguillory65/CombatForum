@@ -48,6 +48,7 @@
   <ItemGroup>
     <Compile Include="AssessmentSerialization.cs" />
     <Compile Include="Combat.cs" />
+    <Compile Include="DataManager.cs" />
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
     </Compile>

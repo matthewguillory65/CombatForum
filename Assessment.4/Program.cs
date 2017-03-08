@@ -18,23 +18,28 @@ namespace Assessment._4
         [STAThread]
         public static void Main()
         {
-            Heros Defender = new Heros(10, 200);
-            Heros Archer = new Heros(160, 140);
-            Heros Warrior = new Heros(180, 120);
+            Heros Defender = new Heros(10, 200, "Defender");
+            Heros Archer = new Heros(160, 140, "Archer");
+            Heros Warrior = new Heros(180, 120, "Warrior");
 
-            Enemy LavaDragon = new Enemy(300);
-            Enemy RockDragon = new Enemy(280);
-            Enemy VolticDragon = new Enemy(190);
-            Enemy ArmoredDragon = new Enemy(200);
-            Enemy SkeleDragon = new Enemy(240);
-            Enemy WaterDragon = new Enemy(140);
+            Enemy LavaDragon = new Enemy(300, "LavaDragon");
+            Enemy RockDragon = new Enemy(280, "Armored Dragon");
+            Enemy VolticDragon = new Enemy(190, "VolticDragon");
+            Enemy ArmoredDragon = new Enemy(200, "RockDragon");
+            Enemy SkeleDragon = new Enemy(240, "SkeleDragon");
+            Enemy WaterDragon = new Enemy(140, "WaterDragon");
 
-            List<Heros> Hoomans = new List<Heros>();
+            Singleton.Instance.Heroz = new List<Heros>();
             List<Enemy> Drogoons = new List<Enemy>();
 
-            Hoomans.Add(Defender);
-            Hoomans.Add(Archer);
-            Hoomans.Add(Warrior);
+            Singleton.Instance.Heroz.Add(Defender);
+            Singleton.Instance.Heroz.Add(Archer);
+            Singleton.Instance.Heroz.Add(Warrior);
+
+            //This Lambda: Uses a ForEach loop, while x = the numeral in the list, (in this instance), until the list is done
+            //int i = Singleton.Instance.Heroz.Count() - 1;
+            //Singleton.Instance.Heroz.ForEach((x => Singleton.Instance.Heroz.Add(x)));
+
 
             Drogoons.Add(LavaDragon);
             Drogoons.Add(RockDragon);
@@ -42,9 +47,9 @@ namespace Assessment._4
             Drogoons.Add(ArmoredDragon);
             Drogoons.Add(SkeleDragon);
             Drogoons.Add(WaterDragon);
-            Defender = Singleton.Instance.Heroz;
+            
             Singleton.Instance.currentDrogoon = Drogoons.First();
-            Singleton.Instance.currentHero = Hoomans.First();
+            //Singleton.Instance.currentHero = Singleton.Instance.Heroz.First();
 
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
