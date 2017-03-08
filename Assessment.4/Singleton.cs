@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Assessment._4
 {
-    class Singleton
+    public class Singleton
     {
         private static Singleton instance = new Singleton();
 

@@ -82,12 +82,7 @@ namespace Assessment._4
 
         private void button3_Click(object sender, EventArgs e)
         {
-            Debug.WriteLine("Saving current progress...");
-            AssessmentSerialization<Heros>.Serialize("CurrentPlayer", SI.currentHero);
-            AssessmentSerialization<Enemy>.Serialize("CurrentEnemy", SI.currentDrogoon);
-            AssessmentSerialization<string>.Serialize("TextLog", textBox6.Text);
-            textBox6.SelectionStart = textBox6.Text.Length;
-            textBox6.ScrollToCaret();
+
         }
 
 
@@ -98,9 +93,18 @@ namespace Assessment._4
         //comboBox2.Items.Add(new Heros(10, 200, "Defender"));
         //comboBox2.Items.Add(new Heros(160, 140, "Archer"));
         //comboBox2.Items.Add(new Heros(180, 120, "Warrior"));
-        private void button5_Click(object sender, EventArgs e)
-        {
 
+        private void button4_Click_1(object sender, EventArgs e)
+        {
+            SI.currentHero = AssessmentSerialization<Heros>.Deserialize("CurrentPlayer");
+            SI.currentDrogoon = AssessmentSerialization<Enemy>.Deserialize("CurrentEnemy");
+
+
+            textBox6.AppendText("Save Loaded     \n \n");
+            textBox6.SelectionStart = textBox6.Text.Length;
+            textBox6.ScrollToCaret();
+            comboBox1.SelectionStart = comboBox1.SelectedIndex;
+            comboBox2.SelectionStart = comboBox2.SelectedIndex;
         }
 
         private void textBox6_TextChanged(object sender, EventArgs e)
@@ -108,17 +112,15 @@ namespace Assessment._4
 
         }
 
-        private void button4_Click_1(object sender, EventArgs e)
+        private void button3_Click_1(object sender, EventArgs e)
         {
-            Debug.WriteLine("Loading previous save...");
-            SI.currentHero = AssessmentSerialization<Heros>.Deserialize("CurrentPlayer");
-            SI.currentDrogoon = AssessmentSerialization<Enemy>.Deserialize("CurrentEnemy");
-
-
-            textBox6.AppendText("Previous Save Loaded... \n");
-            Debug.WriteLine("Previous Save Loaded");
+            AssessmentSerialization<Heros>.Serialize("CurrentPlayer", SI.currentHero);
+            AssessmentSerialization<Enemy>.Serialize("CurrentEnemy", SI.currentDrogoon);
+            AssessmentSerialization<string>.Serialize("TextLog", textBox6.Text);
             textBox6.SelectionStart = textBox6.Text.Length;
             textBox6.ScrollToCaret();
+            comboBox1.SelectionStart = comboBox1.SelectedIndex;
+            comboBox2.SelectionStart = comboBox2.SelectedIndex;
         }
     }
 }

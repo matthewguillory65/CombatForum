@@ -24,11 +24,11 @@ namespace Assessment._4
             INIT, IDLE, ATTACK, DEFEND, DEAD, EXIT
         }
 
-        private string m_Name;
-        private int m_Attack;
-        private int m_Defense;
-        private bool m_Alive;
-        private FSM<PlayerStates> HeroFSM;
+        string m_Name;
+        int m_Attack;
+        int m_Defense;
+        bool m_Alive;
+        FSM<PlayerStates> HeroFSM;
 
         public string Name
         {
