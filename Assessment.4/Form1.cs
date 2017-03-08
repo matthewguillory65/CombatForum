@@ -12,8 +12,29 @@ namespace Assessment._4
         Singleton SI = Singleton.Instance;
         public Form1()
         {
-            InitializeComponent();
 
+            InitializeComponent();
+            Singleton.Instance.Heroz.ForEach(x =>
+            {
+                comboBox1.Items.Add(x.Name);
+                comboBox2.Items.Add(x.Name);
+
+            });
+
+
+            textBox2.Text = SI.currentDrogoon.Attack.ToString();
+            textBox3.Text = SI.currentDrogoon.Alive.ToString();
+            textBox1.Text = SI.currentDrogoon.Name;
+            if (!Singleton.Instance.currentDrogoon.Alive)
+            {
+                Singleton.Instance.Combat.IfDead().ToString();
+            }
+
+            //textBox2.Text = SI.currentDrogoon.Attack.ToString();
+            //    textBox3.Text = SI.currentDrogoon.Alive.ToString();
+            //    textBox1.Text = SI.currentDrogoon.Name;
+            //    if (!Singleton.Instance.currentDrogoon.Alive)
+            //        Singleton.Instance.Combat.IfDead().ToString();
         }
         void SetUp()
         {
@@ -44,61 +65,61 @@ namespace Assessment._4
         //comboBox1.Items.Add(new Heros(180, 120, "Warrior"));
         //comboBox1.Items.Add(SI.Heroz[0].Name);
         //comboBox2.Items.Add(SI.Heroz[0].Name);
-        Singleton.Instance.Heroz.ForEach(x=>
-            {
-                comboBox1.Items.Add(x.Name);
-                comboBox2.Items.Add(x.Name);
-private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
+
+
+
+        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
 
         }
-    });
-            textBox2.Text = SI.currentDrogoon.Attack.ToString();
-            textBox3.Text = SI.currentDrogoon.Alive.ToString();
-            textBox1.Text = SI.currentDrogoon.Name;
-            if (!Singleton.Instance.currentDrogoon.Alive)
-                Singleton.Instance.Combat.IfDead().ToString();
-    
-    private void button4_Click(object sender, EventArgs e)
-    {
-        Debug.WriteLine("Loading previous save...");
-        SI.currentHero = AssessmentSerialization<Heros>.Deserialize("CurrentPlayer");
-        SI.currentDrogoon = AssessmentSerialization<Enemy>.Deserialize("CurrentEnemy");
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            
+        }
 
 
-        TextLog.AppendText("Previous Save Loaded... \n");
-        Debug.WriteLine("Previous Save Loaded");
-        TextLog.SelectionStart = TextLog.Text.Length;
-        TextLog.ScrollToCaret();
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            Debug.WriteLine("Saving current progress...");
+            AssessmentSerialization<Heros>.Serialize("CurrentPlayer", SI.currentHero);
+            AssessmentSerialization<Enemy>.Serialize("CurrentEnemy", SI.currentDrogoon);
+            AssessmentSerialization<string>.Serialize("TextLog", textBox6.Text);
+            textBox6.SelectionStart = textBox6.Text.Length;
+            textBox6.ScrollToCaret();
+        }
+
+
+
+        //Singleton.Instance.Combat.Attack(comboBox1, comboBox2, Singleton.Instance.currentDrogoon);
+        //Singleton.Instance.Combat.Defend(comboBox1, comboBox2, Singleton.Instance.currentDrogoon);
+
+        //comboBox2.Items.Add(new Heros(10, 200, "Defender"));
+        //comboBox2.Items.Add(new Heros(160, 140, "Archer"));
+        //comboBox2.Items.Add(new Heros(180, 120, "Warrior"));
+        private void button5_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void textBox6_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button4_Click_1(object sender, EventArgs e)
+        {
+            Debug.WriteLine("Loading previous save...");
+            SI.currentHero = AssessmentSerialization<Heros>.Deserialize("CurrentPlayer");
+            SI.currentDrogoon = AssessmentSerialization<Enemy>.Deserialize("CurrentEnemy");
+
+
+            textBox6.AppendText("Previous Save Loaded... \n");
+            Debug.WriteLine("Previous Save Loaded");
+            textBox6.SelectionStart = textBox6.Text.Length;
+            textBox6.ScrollToCaret();
+        }
     }
-
-    private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
-    {
-
-    }
-
-    private void comboBox2_SelectedIndexChanged(object sender, EventArgs e)
-    {
-
-    }
-
-    private void button3_Click(object sender, EventArgs e)
-    {
-        Debug.WriteLine("Saving current progress...");
-        AssessmentSerialization<Heros>.Serialize("CurrentPlayer", SI.currentHero);
-        AssessmentSerialization<Enemy>.Serialize("CurrentEnemy", SI.currentDrogoon);
-        AssessmentSerialization<string>.Serialize("TextLog", TextLog.Text);
-        TextLog.SelectionStart = TextLog.Text.Length;
-        TextLog.ScrollToCaret();
-    }
-
-
-
-    //Singleton.Instance.Combat.Attack(comboBox1, comboBox2, Singleton.Instance.currentDrogoon);
-    //Singleton.Instance.Combat.Defend(comboBox1, comboBox2, Singleton.Instance.currentDrogoon);
-
-    //comboBox2.Items.Add(new Heros(10, 200, "Defender"));
-    //comboBox2.Items.Add(new Heros(160, 140, "Archer"));
-    //comboBox2.Items.Add(new Heros(180, 120, "Warrior"));
 }
-}
+
