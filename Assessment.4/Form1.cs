@@ -1,12 +1,9 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Collections.Generic;
+using System.Xml.Serialization;
+using System.IO;
+using System.Diagnostics;
 
 namespace Assessment._4
 {
@@ -25,6 +22,11 @@ namespace Assessment._4
             comboBox2.Items.Add(new Heros());
             comboBox2.Items.Add(new Heros());
     }
+
+        void SetUp()
+        {
+            AssessmentSerialization<List<Heros>>.Serialize("ListofPlayersDefualt", SI.Heroz);
+        }
 
         public void CaseStatements()
         {
@@ -79,6 +81,29 @@ namespace Assessment._4
         private void comboBox2_SelectedIndexChanged_1(object sender, EventArgs e)
         {
 
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            Debug.WriteLine("Loading previous save...");
+            SI.currentHero = AssessmentSerialization<Heros>.Deserialize("CurrentPlayer");
+            SI.currentDrogoon = AssessmentSerialization<Enemy>.Deserialize("CurrentEnemy");
+
+
+            TextLog.AppendText("Previous Save Loaded... \n");
+            Debug.WriteLine("Previous Save Loaded");
+            TextLog.SelectionStart = TextLog.Text.Length;
+            TextLog.ScrollToCaret();
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            Debug.WriteLine("Saving current progress...");
+            AssessmentSerialization<Heros>.Serialize("CurrentPlayer", SI.currentHero);
+            AssessmentSerialization<Enemy>.Serialize("CurrentEnemy", SI.currentDrogoon);
+            AssessmentSerialization<string>.Serialize("TextLog", TextLog.Text);
+            TextLog.SelectionStart = TextLog.Text.Length;
+            TextLog.ScrollToCaret();
         }
     }
 }
