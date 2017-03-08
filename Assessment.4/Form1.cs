@@ -14,21 +14,17 @@ namespace Assessment._4
         {
 
             InitializeComponent();
-            Singleton.Instance.Heroz.ForEach(x =>
-            {
-                comboBox1.Items.Add(x.Name);
-                comboBox2.Items.Add(x.Name);
+            //Singleton.Instance.Heroz.ForEach(x =>
+            //{
+            //    comboBox1.Items.Add(x.Name);
+            //    comboBox2.Items.Add(x.Name);
 
-            });
+            //});
 
 
-            textBox2.Text = SI.currentDrogoon.Attack.ToString();
-            textBox3.Text = SI.currentDrogoon.Alive.ToString();
-            textBox1.Text = SI.currentDrogoon.Name;
-            if (!Singleton.Instance.currentDrogoon.Alive)
-            {
-                Singleton.Instance.Combat.IfDead().ToString();
-            }
+            //SI.currentHero = comboBox1_SelectedIndexChanged();
+
+
 
             //textBox2.Text = SI.currentDrogoon.Attack.ToString();
             //    textBox3.Text = SI.currentDrogoon.Alive.ToString();
@@ -70,12 +66,31 @@ namespace Assessment._4
 
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
+            foreach (Heros hero in Singleton.Instance.Heroz)
+            {
+                if (comboBox1.SelectedItem.Equals(hero.Name))
+                {
+                    SI.currentHero = hero;
+                    break;
+                }
+            }
+        }
 
+        private void comboBox2_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            foreach (Heros hero in Singleton.Instance.Heroz)
+            {
+                if (comboBox2.SelectedItem.Equals(hero.Name))
+                {
+                    SI.currentHero2 = hero;
+                    break;
+                }
+            }
         }
 
         private void button4_Click(object sender, EventArgs e)
         {
-            
+
         }
 
 
@@ -97,14 +112,15 @@ namespace Assessment._4
         private void button4_Click_1(object sender, EventArgs e)
         {
             SI.currentHero = AssessmentSerialization<Heros>.Deserialize("CurrentPlayer");
+            SI.currentHero2 = AssessmentSerialization<Heros>.Deserialize("CurrentPlayer2");
             SI.currentDrogoon = AssessmentSerialization<Enemy>.Deserialize("CurrentEnemy");
 
 
             textBox6.AppendText("Save Loaded     \n \n");
             textBox6.SelectionStart = textBox6.Text.Length;
             textBox6.ScrollToCaret();
-            comboBox1.SelectionStart = comboBox1.SelectedIndex;
-            comboBox2.SelectionStart = comboBox2.SelectedIndex;
+            comboBox1.SelectedItem = SI.currentHero.Name;
+            comboBox2.SelectedItem = SI.currentHero2.Name;
         }
 
         private void textBox6_TextChanged(object sender, EventArgs e)
@@ -115,6 +131,7 @@ namespace Assessment._4
         private void button3_Click_1(object sender, EventArgs e)
         {
             AssessmentSerialization<Heros>.Serialize("CurrentPlayer", SI.currentHero);
+            AssessmentSerialization<Heros>.Serialize("CurrentPlayer2", SI.currentHero2);
             AssessmentSerialization<Enemy>.Serialize("CurrentEnemy", SI.currentDrogoon);
             AssessmentSerialization<string>.Serialize("TextLog", textBox6.Text);
             textBox6.SelectionStart = textBox6.Text.Length;
@@ -122,6 +139,25 @@ namespace Assessment._4
             comboBox1.SelectionStart = comboBox1.SelectedIndex;
             comboBox2.SelectionStart = comboBox2.SelectedIndex;
         }
+
+        private void Form1_Load(object sender, EventArgs e)
+        {
+            foreach (Heros hero in Singleton.Instance.Heroz)
+                comboBox1.Items.Add(hero.Name);
+
+            foreach (Heros hero in Singleton.Instance.Heroz)
+                comboBox2.Items.Add(hero.Name);
+
+            textBox2.Text = SI.currentDrogoon.Attack.ToString();
+            textBox3.Text = SI.currentDrogoon.Alive.ToString();
+            textBox1.Text = SI.currentDrogoon.Name;
+            if (!Singleton.Instance.currentDrogoon.Alive)
+            {
+                Singleton.Instance.Combat.IfDead().ToString();
+            }
+        }
+
+
     }
 }
 
