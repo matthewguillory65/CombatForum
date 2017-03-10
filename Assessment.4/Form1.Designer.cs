@@ -50,6 +50,7 @@
             this.button1.TabIndex = 0;
             this.button1.Text = "Attack";
             this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // button2
             // 
@@ -59,6 +60,7 @@
             this.button2.TabIndex = 3;
             this.button2.Text = "Defend";
             this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // textBox1
             // 
@@ -123,7 +125,7 @@
             // 
             // button3
             // 
-            this.button3.Location = new System.Drawing.Point(397, 168);
+            this.button3.Location = new System.Drawing.Point(461, 193);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(75, 23);
             this.button3.TabIndex = 10;
@@ -133,7 +135,7 @@
             // 
             // button4
             // 
-            this.button4.Location = new System.Drawing.Point(397, 137);
+            this.button4.Location = new System.Drawing.Point(380, 193);
             this.button4.Name = "button4";
             this.button4.Size = new System.Drawing.Size(75, 25);
             this.button4.TabIndex = 11;
@@ -143,8 +145,9 @@
             // 
             // textBox6
             // 
-            this.textBox6.Location = new System.Drawing.Point(266, 171);
+            this.textBox6.Location = new System.Drawing.Point(407, 171);
             this.textBox6.Name = "textBox6";
+            this.textBox6.ReadOnly = true;
             this.textBox6.Size = new System.Drawing.Size(100, 20);
             this.textBox6.TabIndex = 12;
             this.textBox6.TextChanged += new System.EventHandler(this.textBox6_TextChanged);

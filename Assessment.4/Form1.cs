@@ -157,7 +157,15 @@ namespace Assessment._4
             }
         }
 
+        private void button1_Click(object sender, EventArgs e)
+        {
+            SI.Combat.Attack(SI.currentHero, SI.currentHero2, SI.currentDrogoon);
+        }
 
+        private void button2_Click(object sender, EventArgs e)
+        {
+            SI.Combat.Defend(SI.currentHero, SI.currentHero2, SI.currentDrogoon);
+        }
     }
 }
 

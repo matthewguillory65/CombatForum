@@ -29,5 +29,6 @@ namespace Assessment._4
         //public FSM GM;
         public Combat Combat;
         public List<Heros> Heroz;
+        public List<Enemy> Enemys;
     }
 }

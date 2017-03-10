@@ -8,13 +8,14 @@ namespace Assessment._4
 {
     public class Combat
     {
+        public Combat() { }
+
         public int IfDead()
         {
             int Score = 0;
             Score += 1;
             return Score;
         }
-        public Combat() { }
 
         public void Attack(Heros H1, Heros H2, Enemy Dragon)
         {
@@ -25,6 +26,7 @@ namespace Assessment._4
             if (newAttack > Dragon.Attack)
             {
                 Dragon.Alive = false;
+                IfDead();
             }
 
             else
@@ -50,13 +52,6 @@ namespace Assessment._4
             {
                 H1.Alive = false;
                 H2.Alive = false;
-            }
-        }
-        public void ForAttack()
-        {
-            if(!Singleton.Instance.currentHero.Alive && !Singleton.Instance.currentDrogoon.Alive)
-            {
-
             }
         }
     }
