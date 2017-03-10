@@ -159,12 +159,12 @@ namespace Assessment._4
 
         private void button1_Click(object sender, EventArgs e)
         {
-            SI.Combat.Attack(SI.currentHero, SI.currentHero2, SI.currentDrogoon);
+            Singleton.Instance.Combat.Attack(Singleton.Instance.currentHero, Singleton.Instance.currentHero2, Singleton.Instance.currentDrogoon);
         }
 
         private void button2_Click(object sender, EventArgs e)
         {
-            SI.Combat.Defend(SI.currentHero, SI.currentHero2, SI.currentDrogoon);
+            Singleton.Instance.Combat.Defend(Singleton.Instance.currentHero, Singleton.Instance.currentHero2, Singleton.Instance.currentDrogoon);
         }
     }
 }
